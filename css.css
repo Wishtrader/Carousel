@@ -1,0 +1,229 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Cartograph regular';
+    src: url("./fonts/cartograph-sans-cf.eot"); /* IE9 Compat Modes */
+    src: url("./fonts/cartograph-sans-cf.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/cartograph-sans-cf.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/cartograph-sans-cf.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/cartograph-sans-cf.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/cartograph-sans-cf.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/cartograph-sans-cf.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cartograph bold';
+    src: url("./fonts/cartograph-sans-cf-demi-bold.eot"); /* IE9 Compat Modes */
+    src: url("./fonts/cartograph-sans-cf-demi-bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/cartograph-sans-cf-demi-bold.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/cartograph-sans-cf-demi-bold.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/cartograph-sans-cf-demi-bold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/cartograph-sans-cf-demi-bold.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/cartograph-sans-cf-demi-bold.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+* { margin: 0; padding: 0; }
+
+html, body { width: 100%; height: 100%; }
+
+body { font-family: 'Cartograph regular', Arial, sans-serif; background: #292c33; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cartograph bold', Arial, sans-serif; font-weight: normal;
+}
+
+#website { min-width: 480px; }
+
+.max-width { max-width: 1260px; margin-left: auto; margin-right: auto; }
+
+.fake-element { height: 180px; margin-top: 60px; background: #555; }
+
+
+/* optional margin for small devices */
+@media (max-width: 1260px) {
+    .calendar { margin-left: 20px !important; margin-right: 20px !important; }
+}
+
+
+/* Carousel
+------------*/
+.cierra-carousel {
+    position: relative; overflow: hidden; max-width: 100%; height: 600px;
+    margin: 60px auto 0; text-indent: 1260px; }
+/* text-indent is for getting correct window width in JS */
+@media (max-width: 1050px) {.cierra-carousel { text-indent: 1050px; }}
+@media (max-width: 630px)  {.cierra-carousel { text-indent: 630px; }}
+
+.arsen-carousel { position: relative; box-sizing: border-box; }
+.arsen-carousel:after { content: ""; display: table; clear: both; }
+.arsen-carousel .frame { position: relative; margin: 0 auto; }
+.arsen-carousel .frame ul {
+    position: relative; width: 100000px; margin: 0; padding: 0; list-style: none; }
+.arsen-carousel .frame ul li {
+    box-sizing: border-box; float: left; margin: 0; padding: 0; }
+.owl-carousel { width: 200%; }
+.owl-carousel .item {}
+.owl-carousel .item.featured div { height: 600px; }
+.owl-carousel .item div { overflow: hidden; position: relative; height: 300px; }
+.owl-carousel .item div img {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    cursor: pointer; transition: 400ms; }
+/* height: 100%; width: auto; - 100% scaling for horizontal images */
+/* height: auto; width: 100%; - 100% scaling for vertical images */
+.owl-carousel .item div img.horizontal { height: 100%; width: auto; }
+.owl-carousel .item div img.vertical   { height: auto; width: 100%; }
+.owl-carousel .item div.focused img.horizontal,
+.owl-carousel .item div.clicked img.horizontal { height: 110%; }
+.owl-carousel .item div.focused img.vertical,
+.owl-carousel .item div.clicked img.vertical { width: 110%; }
+
+
+/* Popup
+---------*/
+.cierra-popup,
+.cierra-popup * { box-sizing: border-box; }
+.cierra-popup {
+    display: none; position: absolute; z-index: 1; left: 0; top: 0; bottom: 0;
+    width: 75%; padding: 60px 90px; text-indent: 0; background: rgba(0,0,0,0.85); }
+@media (max-width: 1050px) {
+    .cierra-popup { position: fixed; width: 100%; }
+}
+@media (max-width: 768px) {
+    .cierra-popup { padding: 15px 30px 30px; }
+}
+.cierra-popup .inner { overflow: hidden; }
+.cierra-popup .inner .popup-container {
+    display: none; float: left; width: 100%; margin-right: -100%; }
+
+.cierra-popup header {
+    overflow: hidden; position: relative; line-height: 80px;
+    margin-bottom: 32px; border-bottom: 2px solid white; }
+.cierra-popup header h2 { float: left; font-size: 36px; color: white; }
+
+.cierra-popup header .tags {
+    overflow: hidden; float: right; margin-top: 26px; padding-right: 15px; }
+.cierra-popup header .tags span {
+    float: left; margin-right: 15px; line-height: 26px; padding: 0 7px;
+    color: white; font-size: 14px; text-transform: uppercase;
+    border-radius: 2px; border: 1px solid #3b414f; background: #2d313c; }
+@media (max-width: 768px) {
+    .cierra-popup header .tags { float: none; clear: both; padding-bottom: 30px; }
+}
+
+.cierra-popup header .close {
+    position: relative; float: right; margin-top: 31px; width: 18px; height: 18px;
+    cursor: pointer; }
+.cierra-popup header .close:before,
+.cierra-popup header .close:after {
+    content: ""; position: absolute; width: 23px; border-top: 2px solid white; }
+.cierra-popup header .close:before { transform: rotate(45deg); right: -2px; top: 8px; }
+.cierra-popup header .close:after { transform: rotate(-45deg); left: -3px; top: 8px; }
+
+.cierra-popup .content { overflow: auto; height: 366px; }
+.cierra-popup .content-in { overflow: hidden; padding-right: 30px; }
+.cierra-popup .content .content-in .col-left { float: left; width: 50%; padding-right: 30px; }
+.cierra-popup .content .content-in .col-right { float: right; width: 50%; padding-left: 30px; }
+@media (max-width: 768px) {
+    .cierra-popup .content .content-in .col-left,
+    .cierra-popup .content .content-in .col-right { float: none; width: auto; padding: 0; }
+    .cierra-popup .content .content-in .col-right { padding-top: 15px; }
+}
+.cierra-popup .content h3 {font-size: 23px; line-height: 33px; color: white; }
+.cierra-popup .content p {
+    margin-top: 16px; font-size: 16px; line-height: 24px; color: #818590; }
+.cierra-popup .content .link {
+    display: block; margin-top: 30px; width: 260px; line-height: 44px;
+    border: 2px solid white; color: white; text-transform: uppercase;
+    text-decoration: none; text-align: center; transition: 200ms; }
+.cierra-popup .content .link:hover { background: #2d313c; }
+.cierra-popup .content .image {
+    overflow: hidden; margin-top: 30px; position: relative; height: 165px; }
+.cierra-popup .content .image img {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    height: auto; width: 100%; }
+
+
+
+/* Calendar
+------------*/
+
+/*---------- THE MOST IMPORTANT SETTINGS ----------*/
+
+/* duration must be the same as in JavaScript */
+.calendar.transition-ready .date,
+.calendar.transition-ready h3,
+.calendar.transition-ready ul li { transition: 400ms; } /* ANIMATION DURATION */
+
+/* if you change active tab width (32%), it MUST be changed in JS too.
+   Look for "desktopTabMaxWidth" variable */
+.calendar li.active { width: 32%; }
+
+/*-------------------------------------------------*/
+
+.calendar {
+    margin-top: 60px; color: #5e657b;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+}
+.calendar:after { content: ""; display: table; clear: both; }
+.calendar * { box-sizing: border-box; }
+
+.calendar .date {
+    padding-top: 5px; line-height: 60px; font-size: 24px;
+    border-bottom: 3px solid #5e657b;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+.calendar h3 { padding-top: 30px; line-height: 27px; font-size: 18px; }
+.calendar p { padding-top: 19px; line-height: 29px; font-size: 18px; opacity: 0; }
+
+.calendar ul { list-style: none; }
+.calendar ul li { float: left; width: 17%; cursor: pointer; }
+.calendar ul li .in { overflow: hidden; }
+
+.calendar ul li,
+.calendar .wide-box {
+    padding: 20px; border-radius: 6px; border: 1px solid transparent; }
+
+.calendar ul li.active,
+.calendar .wide-box {
+    border-color: #4b5163; background: #2d313c;
+    box-shadow: 0 0 15px 0 rgba(34,34,34,0.5); }
+
+.calendar li.active {}
+.calendar li.active .date { color: white; }
+.calendar li.active h3 { color: white; font-size: 23px; }
+.calendar li.active p { opacity: 1; }
+
+.calendar .wide-box { display: none; }
+
+
+@media (max-width: 1000px) {
+    .calendar h3 { color: white; font-size: 23px; }
+    .calendar p { opacity: 1; }
+
+    .calendar ul li {
+        width: 20% !important; border-bottom: none; margin-bottom: -1px;
+        border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+    .calendar ul li.active {
+        box-shadow:
+               0 -6px 5px rgba(34,34,34,0.1),
+            -8px -6px 5px rgba(34,34,34,0.1),
+             8px -6px 5px rgba(34,34,34,0.1); }
+    .calendar ul li .in { height: auto !important; }
+    .calendar ul li .in .text { display: none; }
+
+    .calendar.first-selected .wide-box { border-top-left-radius: 0; }
+    .calendar.last-selected .wide-box { border-top-right-radius: 0; }
+    .calendar .wide-box { display: block; clear: both; }
+    .calendar .wide-box .inner { overflow: hidden; }
+    .calendar .wide-box .inner .text {
+        float: left; width: 100%; margin-right: -100%; }
+    .calendar .wide-box .inner .text h3 { padding-top: 10px; }
+}
